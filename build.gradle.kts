@@ -41,3 +41,7 @@ tasks.check {
 application {
     mainClass.set("app.MainKt")
 }
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}

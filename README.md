@@ -78,7 +78,7 @@ Bob - Hi (2 minutes ago)
 
 ### Run
 ```bash
-./gradlew run
+./gradlew run --quiet --console=plain
 ```
 
 Type commands in the console.  
