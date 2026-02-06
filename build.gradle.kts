@@ -37,3 +37,7 @@ ktlint {
 tasks.check {
     dependsOn("test", "detekt", "ktlintCheck")
 }
+
+application {
+    mainClass.set("app.MainKt")
+}
