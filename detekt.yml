@@ -1,0 +1,24 @@
+complexity:
+  CyclomaticComplexMethod:
+    active: true
+    threshold: 25
+
+style:
+  ReturnCount:
+    active: false
+
+  LoopWithTooManyJumpStatements:
+    active: false
+
+  MagicNumber:
+    active: true
+
+comments:
+  UndocumentedPublicClass:
+    active: false
+
+naming:
+  FunctionNaming:
+    active: true
+  VariableNaming:
+    active: true
