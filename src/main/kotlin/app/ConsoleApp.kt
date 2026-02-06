@@ -24,14 +24,20 @@ class ConsoleApp(
 
                 is Command.Read ->
                     service.read(command.user).forEach {
-                        output.println("${it.author.value} - ${it.message} (${timeFormatter.formatSince(it.timestamp)})")
+                        output.println(
+                            "${it.author.value} - " +
+                                "${it.message} (${timeFormatter.formatSince(it.timestamp)})",
+                        )
                     }
 
                 is Command.Follow -> service.follow(command.user, command.other)
 
                 is Command.Wall ->
                     service.wall(command.user).forEach {
-                        output.println("${it.author.value} - ${it.message} (${timeFormatter.formatSince(it.timestamp)})")
+                        output.println(
+                            "${it.author.value} - " +
+                                "${it.message} (${timeFormatter.formatSince(it.timestamp)})",
+                        )
                     }
             }
         }
