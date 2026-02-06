@@ -1,7 +1,6 @@
 package parsing
 
 class CommandParser {
-
     private val post = Regex("""^(?<user>.+?)\s*->\s*(?<msg>.+?)$""")
     private val wall = Regex("""^(?<user>\S.+?)\s+wall$""", RegexOption.IGNORE_CASE)
     private val follows = Regex("""^(?<user>\S.+?)\s+follows\s+(?<other>\S.+?)$""", RegexOption.IGNORE_CASE)

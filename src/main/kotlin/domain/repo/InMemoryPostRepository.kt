@@ -11,6 +11,5 @@ class InMemoryPostRepository : PostRepository {
         postsByUser.computeIfAbsent(post.author) { mutableListOf() }.add(post)
     }
 
-    override fun timeline(user: UserName): List<Post> =
-        postsByUser[user]?.toList().orEmpty()
+    override fun timeline(user: UserName): List<Post> = postsByUser[user]?.toList().orEmpty()
 }

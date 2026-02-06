@@ -5,5 +5,6 @@ import domain.model.UserName
 
 interface PostRepository {
     fun add(post: Post)
+
     fun timeline(user: UserName): List<Post>
 }
