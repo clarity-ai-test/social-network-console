@@ -104,3 +104,33 @@ Run all checks (tests, linting, static analysis):
 ```bash
 ./gradlew check
 ```
+
+## Approach
+
+I focused on building a small but clean and testable solution:
+
+- Parse each input line into a `Command` (or ignore it if invalid).
+- Execute commands through a single application service (`SocialNetworkService`) that encapsulates the use cases:
+  - post
+  - read timeline
+  - follow
+  - wall
+- Keep I/O concerns in the `app` layer (`ConsoleApp`) so the core logic stays independent from the CLI.
+
+Testing strategy:
+- Unit tests for parsing, repositories, service logic, and time formatting.
+- Integration tests for the console flow, covering multiple command combinations end-to-end.
+
+## Assumptions
+
+- A `Read` command is only accepted for a single-token username (no spaces).
+- Invalid / malformed input lines are ignored (no error output).
+- `Wall` shows the user's own posts plus posts from followed users.
+- Posts are ordered by recency (most recent first).
+- Time is treated as an explicit dependency (`Clock`) to keep behaviour deterministic in tests.
+
+## Trade-offs
+
+- Persistence is in-memory only (no DB, no files) to keep the kata focused on behaviour and design.
+- I prioritised clear structure and testability over extra features (e.g. persistence, pagination, user validation, richer error reporting).
+- The CLI output is intentionally minimal, matching the exercise expectations.
